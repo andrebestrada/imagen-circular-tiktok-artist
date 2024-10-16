@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagen Circular</title>
+  <style>
+    /* Estilo para centrar y redondear la imagen */
+    .circular-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circular-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="circular-image">
+    <img id="artistImage" src="" alt="Imagen del Artista">
+  </div>
+
+  <script>
+    // Obtener el parámetro "url" de la URL
+    const params = new URLSearchParams(window.location.search);
+    const imageUrl = params.get("url");
+
+    // Verificar si existe el parámetro "url" y actualizar la imagen
+    const imageElement = document.getElementById("artistImage");
+    if (imageUrl) {
+      imageElement.src = imageUrl;
+    } else {
+      imageElement.alt = "No se proporcionó URL de la imagen";
+    }
+  </script>
+</body>
+</html>
